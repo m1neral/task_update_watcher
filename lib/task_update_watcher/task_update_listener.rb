@@ -13,5 +13,9 @@ module TaskUpdateWatcher
     def controller_journals_edit_post(context = {})
       DataSender.send_data(context[:journal].issue.id, User.current.id) if context[:journal]
     end
+
+    def controller_issues_new_after_save(context = {})
+      DataSender.send_data(context[:issue].parent_issue_id, User.current.id) if context[:issue].parent_issue_id
+    end
   end
 end

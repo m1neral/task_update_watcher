@@ -16,7 +16,8 @@ module TaskUpdateWatcher
       request = Net::HTTP::Post.new uri.request_uri
       request['content-type'] = 'application/json'
       request.body = body.to_json
-      http.request request
+      resp = http.request request
+      puts (resp.body).colorize :yellow
     rescue SocketError => e
       Rails.logger.error "Post request failed: #{e.inspect}; body: #{body.inspect}; uri: #{uri.inspect}"
     end
