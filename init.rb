@@ -1,6 +1,11 @@
 require 'redmine'
 
 require_dependency 'task_update_watcher/task_update_listener'
+require_dependency 'task_update_watcher/attachment_patch'
+
+Rails.application.config.to_prepare do
+  AttachmentsController.send :include, TaskUpdateWatcher::AttachmentPatch
+end
 
 Redmine::Plugin.register :task_update_watcher do
   name 'Task Update Watcher plugin'
