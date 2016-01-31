@@ -1,5 +1,7 @@
 require 'redmine'
 
+require_dependency 'task_update_watcher/task_update_listener'
+
 Redmine::Plugin.register :task_update_watcher do
   name 'Task Update Watcher plugin'
   author 'Anatoly Ryabov'
