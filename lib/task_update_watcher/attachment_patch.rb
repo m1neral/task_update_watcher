@@ -1,3 +1,5 @@
+require 'data_sender'
+
 module TaskUpdateWatcher
   module AttachmentPatch
     def self.included(base)
@@ -14,7 +16,7 @@ module TaskUpdateWatcher
 
     module InstanceMethods
       def controller_attachment_after_destroy
-
+        DataSender.send_data(@attachment.container.id, User.current.id) if @attachment
       end
     end
   end
