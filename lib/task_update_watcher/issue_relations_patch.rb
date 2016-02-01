@@ -16,7 +16,7 @@ module TaskUpdateWatcher
 
     module InstanceMethods
       def controller_issue_relations_change
-        DataSender.send_data(@relation.issue_from.id, User.current.id) if @relation
+        SendData.new(@relation.issue_from.id, User.current.id).do if @relation
       end
     end
   end

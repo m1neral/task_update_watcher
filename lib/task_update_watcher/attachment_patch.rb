@@ -16,7 +16,7 @@ module TaskUpdateWatcher
 
     module InstanceMethods
       def controller_attachment_after_destroy
-        DataSender.send_data(@attachment.container.id, User.current.id) if @attachment
+        SendData.new(@attachment.container.id, User.current.id).do if @attachment
       end
     end
   end
