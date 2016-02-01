@@ -1,5 +1,3 @@
-require 'data_sender'
-
 module TaskUpdateWatcher
   module AttachmentPatch
     def self.included(base)

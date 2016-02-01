@@ -1,5 +1,3 @@
-require 'data_sender'
-
 module TaskUpdateWatcher
   class TaskUpdateNotifier < Redmine::Hook::Listener
     def controller_issues_bulk_edit_before_save(context = {})
