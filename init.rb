@@ -14,4 +14,7 @@ Redmine::Plugin.register :task_update_watcher do
   version '0.0.1'
   url 'https://github.com/m1neral/task_update_watcher'
   author_url 'https://github.com/m1neral'
+
+  settings default: { 'request_url' => 'http://httpbin.org/post' },
+           partial: 'settings/task_update_watcher_settings'
 end
